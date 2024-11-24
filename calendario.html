@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipio Escolar - Calendario Cívico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0078d4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .toggle-nav-btn {
+            background-color: #005bb5;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-nav-btn:hover {
+            background-color: #003f8f;
+        }
+
+        nav {
+            width: 250px;
+            background: linear-gradient(135deg, #0078d4, #005bb5);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Menú oculto inicialmente */
+            height: 100%;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s ease-in-out;
+        }
+
+        nav.visible {
+            left: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        main {
+            margin-left: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        main.nav-visible {
+            margin-left: 270px;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0078d4;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar div {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .calendar .header {
+            font-weight: bold;
+            background-color: #0078d4;
+            color: white;
+            font-size: 16px;
+        }
+
+        .calendar .celebration {
+            background-color: #ffe599;
+            font-weight: bold;
+        }
+
+        .calendar .empty {
+            background-color: #f4f4f4;
+            border: none;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                left: -100%; /* Ocultar menú en móviles */
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            nav.visible {
+                left: 0;
+            }
+
+            .calendar {
+                grid-template-columns: repeat(7, 1fr); /* Mantener 7 columnas */
+                gap: 5px; /* Reducir el espacio entre celdas */
+                padding: 10px;
+                max-width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+            }
+
+            .calendar div {
+                font-size: 12px; /* Reducir el tamaño de la fuente para que quepan los días */
+                padding: 10px; /* Asegurar un buen espacio para cada celda */
+            }
+
+            .calendar .header {
+                font-size: 14px; /* Ajustar encabezados para que sean más pequeños */
+            }
+
+            .calendar .celebration {
+                font-size: 10px; /* Ajustar el tamaño de los eventos */
+            }
+
+            .calendar .header, .calendar div {
+                border: 1px solid #ddd; /* Asegurar bordes para separación */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" width="70"> <!-- Cambia "logo.png" por el nombre de tu archivo de logo -->
+        <h1>Municipio Escolar J.I.M</h1>
+        <button class="toggle-nav-btn" onclick="toggleNav()">Menú</button>
+    </header>
+    
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html">Partido</a></li>
+            <li><a href="periodico.html">Periódico Mural</a></li>
+            <li><a href="calendario.html">Calendario Cívico</a></li>
+            <li><a href="anuncios.html">Anuncios</a></li>
+            <li><a href="docentes.html">Docentes</a></li>
+            <li><a href="bp.html">Brigadieres y Policías</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <h2 class="section-title">Calendario Cívico</h2>
+        <h3>Mes: Marzo</h3>
+        <div class="calendar">
+            <!-- Encabezados -->
+            <div class="header">Dom</div>
+            <div class="header">Lun</div>
+            <div class="header">Mar</div>
+            <div class="header">Mié</div>
+            <div class="header">Jue</div>
+            <div class="header">Vie</div>
+            <div class="header">Sáb</div>
+
+            <!-- Días del mes -->
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div>1</div>
+            <div>2</div>
+            <div class="celebration">3<br>Apertura de clases</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div>
+            <div>31</div>
+        </div>
+    </main>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const mainContent = document.getElementById('main-content');
+
+        // Alternar visibilidad del menú
+        function toggleNav() {
+            navbar.classList.toggle('visible');
+            mainContent.classList.toggle('nav-visible');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipio Escolar - Partido</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0078d4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .toggle-nav-btn {
+            background-color: #005bb5;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-nav-btn:hover {
+            background-color: #003f8f;
+        }
+
+        nav {
+            width: 250px;
+            background: linear-gradient(135deg, #0078d4, #005bb5);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav.visible {
+            transform: translateX(0);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        main {
+            margin-left: 20px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        main.nav-visible {
+            margin-left: 270px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                z-index: 1000;
+            }
+
+            main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" width="70">
+        <h1>Municipio Escolar J.I.M</h1>
+        <button class="toggle-nav-btn" onclick="toggleNav()">Menú</button>
+    </header>
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.html">Partido</a></li>
+            <li><a href="periodico.html">Periódico Mural</a></li>
+            <li><a href="calendario.html">Calendario Cívico</a></li>
+            <li><a href="anuncios.html">Anuncios</a></li>
+            <li><a href="docentes.html">Docentes</a></li>
+            <li><a href="bp.html">Brigadieres y Policías</a></li>
+        </ul>
+    </nav>
+    <main id="main-content">
+        <h2 class="section-title">Partido</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagen1.jpg" alt="Ayko">
+                <p><strong>Alcaldesa</strong> </p>
+                <p><strong>Nombre:</strong> Ayko Taylor Taricuarima Amasifuen</p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 4"A"</p>
+            </div>
+            <div class="card">
+                <img src="imagen2.jpg" alt="Carlos">
+                <p><strong>Teniente alcande</strong> </p>
+                <p><strong>Nombre:</strong> Carlos Marx Shupingahua Ramirez</p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 4"A"</p>
+            </div>
+            <div class="card">
+                <img src="imagen3.jpg" alt="Fabiana">
+                <p><strong>Regidora de educación, cultura recreación y deporte</strong> </p>
+                <p><strong>Nombre:</strong> Fabiana Myshell Olortegui Salazar</p>
+                <p><strong>Edad:</strong> 10 años</p>
+                <p><strong>Grado y seccion:</strong> primaria 5"B"</p>
+            </div>
+            <div class="card">
+                <img src="imagen4.jpg" alt="Hanna">
+                <p><strong>Regidora de salud y ambiente</strong> </p>
+                <p><strong>Nombre:</strong> Hanna Maite Pizango Cruz </p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 3"B"</p>
+            </div>
+            <div class="card">
+                <img src="imagen5.jpg" alt="Damaris">
+                <p><strong>Regidora de emprendimiento y actividades productivas</strong> </p>
+                <p><strong>Nombre:</strong> Damaris Rossbith Simon Ybañez</p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 3"C"</p>
+            </div>
+            <div class="card">
+                <img src="imagen6.jpg" alt="Romina">
+                <p><strong>Regidora de derechos del niño, niña y adolescente</strong> </p>
+                <p><strong>Nombre:</strong> Romina Rubi Diaz Rojas</p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 3"C"</p>
+            </div>
+            <div class="card">
+                <img src="imagen7.jpg" alt="Antonio">
+                <p><strong>Regidor de comunicación y tecnología de la información</strong> </p>
+                <p><strong>Nombre:</strong> Carlos Antonio Abad Ramos</p>
+                <p><strong>Edad:</strong> 15 años</p>
+                <p><strong>Grado y seccion:</strong> 4"B"</p>
+            </div>
+    </main>
+
+    <script>
+        function toggleNav() {
+            const nav = document.getElementById('navbar');
+            const main = document.getElementById('main-content');
+            nav.classList.toggle('visible');
+            main.classList.toggle('nav-visible');
+        }
+    </script>
+
+    
+</body>
+</html>
