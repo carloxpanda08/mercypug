@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipio Escolar - Brigadieres y Policías</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0078d4;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Oculto fuera de la pantalla */
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(135deg, #0078d4, #005bb5);
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0; /* Desliza la barra dentro de la pantalla */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #menu-btn {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #menu-btn:hover {
+            background-color: #005bb5;
+        }
+
+        main {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0078d4;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .brigadiers-general-grid, .brigadiers-grid {
+            display: grid;
+            gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .brigadiers-general-grid {
+            grid-template-columns: repeat(1, 1fr); /* Una columna por defecto */
+        }
+
+        .brigadiers-grid {
+            grid-template-columns: repeat(1, 1fr); /* Una columna por defecto */
+        }
+
+        .brigadier-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .brigadier-card img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #0078d4;
+        }
+
+        .brigadier-card h3 {
+            color: #0078d4;
+            margin: 10px 0 5px;
+        }
+
+        .brigadier-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            background-color: #0078d4;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination a:hover {
+            background-color: #005bb5;
+        }
+
+        @media (min-width: 768px) {
+            .brigadiers-general-grid {
+                grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+            }
+
+            .brigadiers-grid {
+                grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" width="70">
+        <h1>Municipio Escolar J.I.M</h1>
+    </header>
+
+    <!-- Botón del menú -->
+    <button id="menu-btn">☰</button>
+
+    <!-- Barra lateral -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Partido</a></li>
+            <li><a href="periodico.html">Periódico Mural</a></li>
+            <li><a href="calendario.html">Calendario Cívico</a></li>
+            <li><a href="anuncios.html">Anuncios</a></li>
+            <li><a href="docentes.html">Docentes</a></li>
+            <li><a href="bp.html">Brigadieres y Policías</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <h2 class="section-title">Brigadieres y Policías</h2>
+        
+        <h3>Brigadieres Generales</h3>
+        <div class="brigadiers-general-grid">
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto de Brigadier General 1">
+                <h3>Juan Lorezon del Aguila Peña</h3>
+                <p>Años: 15</p>
+                <p>Grado: 4A</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto de Brigadier General 2">
+                <h3>Daniel</h3>
+                <p>Años: 16</p>
+                <p>Grado: 4A</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto de Brigadier General 3">
+                <h3>Miguel</h3>
+                <p>Años: 16</p>
+                <p>Grado: 5B</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto de Brigadier General 3">
+                <h3>Angela </h3>
+                <p>Años: 16</p>
+                <p>Grado: 5C</p>
+            </div>
+        </div>
+
+        <!-- Brigadieres y Policías de Aula -->
+        <h3>Brigadieres y Policías de Aula</h3>
+        <div class="brigadiers-grid">
+            <!-- Primera fila -->
+            <div class="brigadier-card">
+                <img src="anonimo.png"alt="Foto Brigadier 1">
+                <h3>Camila Milagros Gonzales Panduro</h3>
+                <p>Rango:Brigadier</p>
+                <p>Sección: 5A</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto Policía 1">
+                <h3>María Isabel Arimuya Ramos</h3>
+                <p>Rango:Brigadier</p>
+                <p>Sección: 5A</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto policia 1.2">
+                <h3>Reyna Zaith Córdova Ricopa</h3>
+                <p>Rango:Policia</p>
+                <p>Sección: 5A</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto brigadier 2">
+                <h3>Arianna Nicolle Lozano Nunta</h3>
+                <p>Rango:Brigadier</p>
+                <p>Sección: 5B</p>
+                <p>Años: 16</p>
+            </div>
+            <!-- Segunda fila -->
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto policia 2">
+                <h3>Sara Nicol Quispe Pereyra</h3>
+                <p>Rango:Policia</p>
+                <p>Sección: 5B</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto brigadier 3">
+                <h3>Shankar Guadalupe Silva Toledo</h3>
+                <p>Rango:Brigadier</p>
+                <p>Sección: 5C</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto policia 3">
+                <h3>Rodrigo Moisés Coopi Ramos</h3>
+                <p>Rango:Policia</p>
+                <p>Sección: 5C</p>
+                <p>Años: 16</p>
+            </div>
+            <div class="brigadier-card">
+                <img src="anonimo.png" alt="Foto brigadier 4">
+                <h3>Carlos Marx Shupingahua Ramirez</h3>
+                <p>Rango:Brigadier</p>
+                <p>Sección: 4A</p>
+                <p>Años: 15</p>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="bp2.html">Página 2</a>
+        </div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
